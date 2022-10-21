@@ -4,7 +4,7 @@ function clearPreviousResult () {
   document.getElementById("Assembly").setAttribute("class", "hidden");
 }
 
-function suggest() {
+function suggestLang() {
   const answer1 = document.querySelector("input[name='question1']:checked");
   const answer2 = document.querySelector("input[name='question2']:checked");
   const answer3 = document.querySelector("input[name='question3']:checked");
@@ -18,7 +18,7 @@ function suggest() {
   let r = 0;
   let assembly = 0;
 
-  answers = [answer1,answer2,answer3,answer4,answer5,answer6, answer7];
+  answers = [answer1,answer2,answer3,answer4,answer5,answer6,answer7];
 
   for (i = 0; i < answers.length; i++) {
     if (answers[i].className === "Python") {
@@ -31,11 +31,11 @@ function suggest() {
   }
 
   let langNames = ["Python","R","Assembly"];
-  let tally = [python,r,assembly];
+  let tally = [python,r,assembly]; 
   const index = tally.indexOf(Math.max(...tally));
-  const suggestion = langNames[index];
+  const langSuggestion = langNames[index];
 
-  return suggestion;
+  return langSuggestion;
 
 }
 
@@ -45,6 +45,6 @@ window.addEventListener("load", function() {
   form.addEventListener("submit", function(event) {
     event.preventDefault();
     clearPreviousResult();
-    document.getElementById(suggest()).removeAttribute("class");
+    document.getElementById(suggestLang()).removeAttribute("class");
   });
 });
