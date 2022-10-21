@@ -4,5 +4,23 @@
 
 body {
   background-color: tomato;
-  ;
+}
+
+.card {
+  margin: 10px;
+  padding: 10px;
+}
+
+h5.card-title {
+  font-weight: 900;
+}
+
+li {
+  font-size: large;
+}
+
+.jumbotron {
+  
+  text-align: center;
+
 }
