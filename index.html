@@ -1,10 +1,67 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <title></title>
+  <title>Language Suggester</title>
   <link href="css/styles.css" rel="stylesheet" type="text/css">
   <script src="js/scripts.js"></script>
 </head>
 <body>
+  <h2>Which programming language should you learn?</h2>
+  <!-- <ul>
+    <li>Python</li>
+    <li>R</li>
+    <li>Assembly</li>
+  </ul> -->
+  <form>
+    <ol> 
+      <li>
+        <p>Do you want to work in industry or academia?</p>
+        <input type="radio" name="workplace" value="Industry" id="industry" checked>
+        <label for="industry">Industry</label><br>
+        <input type="radio" name="workplace" value="Academia" id="academia">
+        <label for="academia">Academia</label><br>
+        <input type="radio" name="workplace" value="Unemployed" id="unemployed">
+        <label for="unemployed">I really don't want a job</label><br>
+      </li>
+      <li>
+        <p>Are you more interested in all-purpose programming or statistics?</p>
+        <input type="radio" name="interest" value="CS" id="cs" checked>
+        <label for="cs">Programming</label>
+        <input type="radio" name="interest" value="Statistics" id="statistics">
+        <label for="statistics">Statistics</label>
+      </li>
+      <li>
+        <p>Do you like being useful?</p>
+        <input type="radio" name="useful" value="Yes" id="yes-useful" checked>
+        <label for="yes-useful">Yes</label>
+        <input type="radio" name="useful" value="No" id="not-useful">
+        <label for="not-useful">No</label>
+      </li>
+      <li>
+        <p>Which I/O device do you prefer?</p>
+        <input type="radio" name="device" value="Keyboard" id="keyboard" checked>
+        <label for="keyboard">Keyboard</label>
+        <input type="radio" name="device" value="Punch-card" id="punch-card">
+        <label for="punch-card">Punch card</label>
+      </li>
+      <li>
+        <p>Which is more important to you: machine learning or data analysis and visualization?</p>
+        <input type="radio" name="important" value="ML" id="ml" checked>
+        <label for="ml">Machine Learning</label>
+        <input type="radio" name="important" value="DAV" id="dav">
+        <label for="dav">Data Analysis and Visualization?</label>
+      </li>
+      <li>
+        <p>Which community sounds most appealing: modestly-sized and specialized with a highly-curated, centralized, deep ecosystem of open-source libraries, or the largest programming community on the planet awash with resources of varying quality?</p>
+        <input type="radio" name="community" value="Uh" id="uh" checked>
+        <label for="uh">That's the most leading question I've ever seen</label><br>
+        <input type="radio" name="community" value="First" id="first">
+        <label for="first">The first one</label><br>
+        <input type="radio" name="community" value="Second" id="second">
+        <label for="second">The second</label><br>
+      </li>
+    </ol>
+  </form>
+
 </body>
 </html>
