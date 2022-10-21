@@ -13,15 +13,30 @@ function suggestLang() {
   const answer6 = document.querySelector("input[name='question6']:checked");
   const answer7 = document.querySelector("input[name='question7']:checked");
 
-  // Could Probably streamline lines 17-19, 33-36 with the use of Objects
+  let answers = [answer1,answer2,answer3,answer4,answer5,answer6,answer7];
 
-  let suggestionKey = [["Python",0], ["R",0], ["Assembly",0]];
+  let suggestionKey = {
+    python: 0,
+    r: 0,
+    assembly: 0
+  }
 
+  for (i = 0; i < answers.length; i++) {
+    for (let [key,value] of Object.entries(suggestionKey)) {
+      if (answers[i].className.toLowerCase() === key) {
+        // parseInt(`${suggestionKey[property]}`) += 1;
+        value = value + 1; 
+      }
+    }
+  }
+
+  const index = sugg.indexOf(Math.max(...tally));
+
+
+  
   // let python = 0;
   // let r = 0;
   // let assembly = 0;
-
-  let answers = [answer1,answer2,answer3,answer4,answer5,answer6,answer7];
 
   // for (i = 0; i < answers.length; i++) {
   //   if (answers[i].className === "Python") {
@@ -32,16 +47,6 @@ function suggestLang() {
   //     assembly += 1;
   //   }
   // }
-
-  for (i = 0; i < answers.length; i++) {
-    for (j = 0; j < suggestionKey.length; j++) {
-      if (answers[i].className === suggestionKey[j][0]) {
-        suggestionKey[j][1] += 1;
-      }
-    }
-  }
-
-  
 
   // let langNames = ["Python","R","Assembly"];
   // // let tally = [python,r,assembly]; 
