@@ -1,10 +1,8 @@
-function clearPreviousResult () {
-  document.getElementById("python").setAttribute("class", "hidden");
-  document.getElementById("r").setAttribute("class", "hidden");
-  document.getElementById("assembly").setAttribute("class", "hidden");
-}
+/////////////////////////////////////////////////////////////////////////////
 
-function suggestLang() {
+// UI Logic
+
+function getInputArray() {
 
   const answer1 = document.querySelector("input[name='question1']:checked");
   const answer2 = document.querySelector("input[name='question2']:checked");
@@ -14,9 +12,39 @@ function suggestLang() {
   const answer6 = document.querySelector("input[name='question6']:checked");
   const answer7 = document.querySelector("input[name='question7']:checked");
 
-  let answers = [answer1,answer2,answer3,answer4,answer5,answer6,answer7]
+  answers = [answer1,answer2,answer3,answer4,answer5,answer6,answer7];
 
-  // Old, basic branching method
+}
+
+function updateDisplay() {
+  // Hide previously revealed div in the HTML
+  document.getElementById("python").setAttribute("class", "hidden");
+  document.getElementById("r").setAttribute("class", "hidden");
+  document.getElementById("assembly").setAttribute("class", "hidden");
+  // Reveal new div based on business logic result: "langSuggestion"
+  document.getElementById(langSuggestion).removeAttribute("class");
+}
+
+// Event Listening
+window.addEventListener("load", function() {
+  let form = document.querySelector("form");
+  let langSuggestion = "";
+  let answers = [];
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    getInputArray();
+    suggestLang();
+    updateDisplay();
+  });
+});
+
+/////////////////////////////////////////////////////////////////////////////
+
+// Business Logic 
+
+function suggestLang() {
+
   let python = 0;
   let r = 0;
   let assembly = 0;
@@ -34,17 +62,6 @@ function suggestLang() {
   let langNames = ["python","r","assembly"];
   let tally = [python,r,assembly]; 
   const index = tally.indexOf(Math.max(...tally));
-  const langSuggestion = langNames[index];
-  return langSuggestion;
+  langSuggestion = langNames[index];
 
 }
-
-window.addEventListener("load", function() {
-  let form = document.querySelector("form");
-
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
-    clearPreviousResult();
-    document.getElementById(suggestLang()).removeAttribute("class");
-  });
-});

@@ -5,13 +5,11 @@
 // Normally I would submit this alternative in its own branch, but I know that for grading purposes only `main` is checked on this assignment. 
 // So I saved it here to keep record of the work I've put into it.
 
-function clearPreviousResult () {
-  document.getElementById("python").setAttribute("class", "hidden");
-  document.getElementById("r").setAttribute("class", "hidden");
-  document.getElementById("assembly").setAttribute("class", "hidden");
-}
+/////////////////////////////////////////////////////////////////////////////
 
-function suggestLang() {
+// UI Logic
+
+function getInputArray() {
 
   const answer1 = document.querySelector("input[name='question1']:checked");
   const answer2 = document.querySelector("input[name='question2']:checked");
@@ -21,7 +19,38 @@ function suggestLang() {
   const answer6 = document.querySelector("input[name='question6']:checked");
   const answer7 = document.querySelector("input[name='question7']:checked");
 
-  let answers = [answer1,answer2,answer3,answer4,answer5,answer6,answer7];
+  answers = [answer1,answer2,answer3,answer4,answer5,answer6,answer7];
+
+}
+
+function updateDisplay() {
+  // Hide previously revealed div in the HTML
+  document.getElementById("python").setAttribute("class", "hidden");
+  document.getElementById("r").setAttribute("class", "hidden");
+  document.getElementById("assembly").setAttribute("class", "hidden");
+  // Reveal new div based on business logic result: "langSuggestion"
+  document.getElementById(langSuggestion).removeAttribute("class");
+}
+
+// Event Listening
+window.addEventListener("load", function() {
+  let form = document.querySelector("form");
+  let langSuggestion = "";
+  let answers = [];
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    getInputArray();
+    suggestLang();
+    updateDisplay();
+  });
+});
+
+/////////////////////////////////////////////////////////////////////////////
+
+// Business Logic 
+
+function suggestLang() {
 
   let suggestionKey = {
     python: 0,
@@ -39,18 +68,6 @@ function suggestLang() {
   
   const tallies = Object.values(suggestionKey);
   const index = tallies.indexOf(Math.max(...tallies));
-  const langSuggestion = Object.keys(suggestionKey)[index];
-
-  return langSuggestion;
+  langSuggestion = Object.keys(suggestionKey)[index];
 
 }
-
-window.addEventListener("load", function() {
-  let form = document.querySelector("form");
-
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
-    clearPreviousResult();
-    document.getElementById(suggestLang()).removeAttribute("class");
-  });
-});
