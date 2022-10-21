@@ -14,28 +14,40 @@ function suggestLang() {
   const answer7 = document.querySelector("input[name='question7']:checked");
 
   // Could Probably streamline lines 17-19, 33-36 with the use of Objects
-  let python = 0;
-  let r = 0;
-  let assembly = 0;
 
-  answers = [answer1,answer2,answer3,answer4,answer5,answer6,answer7];
+  let suggestionKey = [["Python",0], ["R",0], ["Assembly",0]];
+
+  // let python = 0;
+  // let r = 0;
+  // let assembly = 0;
+
+  let answers = [answer1,answer2,answer3,answer4,answer5,answer6,answer7];
+
+  // for (i = 0; i < answers.length; i++) {
+  //   if (answers[i].className === "Python") {
+  //     python += 1;
+  //   } else if (answers[i].className === "R") {
+  //     r += 1;
+  //   } else if (answers[i].className === "Assembly") {
+  //     assembly += 1;
+  //   }
+  // }
 
   for (i = 0; i < answers.length; i++) {
-    if (answers[i].className === "Python") {
-      python += 1;
-    } else if (answers[i].className === "R") {
-      r += 1;
-    } else if (answers[i].className === "Assembly") {
-      assembly += 1;
+    for (j = 0; j < suggestionKey.length; j++) {
+      if (answers[i].className === suggestionKey[j][0]) {
+        suggestionKey[j][1] += 1;
+      }
     }
   }
 
-  let langNames = ["Python","R","Assembly"];
-  let tally = [python,r,assembly]; 
-  const index = tally.indexOf(Math.max(...tally));
-  const langSuggestion = langNames[index];
+  
 
-  return langSuggestion;
+  // let langNames = ["Python","R","Assembly"];
+  // // let tally = [python,r,assembly]; 
+  // const index = tally.indexOf(Math.max(...tally));
+  // const langSuggestion = langNames[index];
+  // return langSuggestion;
 
 }
 
