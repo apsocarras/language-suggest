@@ -1,10 +1,10 @@
-// UI Logic 
+function clearPreviousResult () {
+  document.getElementById("Python").setAttribute("class", "hidden");
+  document.getElementById("R").setAttribute("class", "hidden");
+  document.getElementById("Assembly").setAttribute("class", "hidden");
+}
 
-// Business Logic
-
-// if-else branch to tally up results from form input
-
-function tallyInputs() {
+function suggest() {
   const answer1 = document.querySelector("input[name='question1']:checked");
   const answer2 = document.querySelector("input[name='question2']:checked");
   const answer3 = document.querySelector("input[name='question3']:checked");
@@ -13,6 +13,7 @@ function tallyInputs() {
   const answer6 = document.querySelector("input[name='question6']:checked");
   const answer7 = document.querySelector("input[name='question7']:checked");
 
+  // Could Probably streamline lines 17-19, 33-36 with the use of Objects
   let python = 0;
   let r = 0;
   let assembly = 0;
@@ -29,14 +30,21 @@ function tallyInputs() {
     }
   }
 
-  langNames = ["Python","R","Assembly"];
-  
-  const suggestion = Math.max(python,r,assembly);
+  let langNames = ["Python","R","Assembly"];
+  let tally = [python,r,assembly];
+  const index = tally.indexOf(Math.max(...tally));
+  const suggestion = langNames[index];
 
-
-  Object.keys({suggestion})[0]; // https://stackoverflow.com/questions/4602141/variable-name-as-a-string-in-javascript
+  return suggestion;
 
 }
 
-const myFirstName = 'John'
-Object.keys({myFirstName})[0]
+window.addEventListener("load", function() {
+  let form = document.querySelector("form");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    clearPreviousResult();
+    document.getElementById(suggest()).removeAttribute("class");
+  });
+});
