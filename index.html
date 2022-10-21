@@ -2,84 +2,99 @@
 <html lang="en-US">
 <head>
   <title>Language Suggester</title>
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
   <link href="css/styles.css" rel="stylesheet" type="text/css">
   <script src="js/scripts.js"></script>
 </head>
 <body>
-  <h2>Which programming language should you learn?</h2>
-
-  <form>
-    <ol> 
-      <li>
-        <p>Do you want to work in industry or academia?</p>
-        <input type="radio" name="question1" value="Industry" id="industry" class="python" checked>
-        <label for="industry" class="python">Industry</label><br>
-        <input type="radio" name="question1" value="Academia" id="academia" class="r">
-        <label for="academia" class="r">Academia</label><br>
-        <input type="radio" name="question1" value="Unemployed" id="unemployed" class="assembly">
-        <label for="unemployed" class="assembly">I really don't want a job</label><br>
-      </li>
-      <li>
-        <p>Are you more interested in all-purpose programming or statistics?</p>
-        <input type="radio" name="question2" value="CS" id="cs" class="python" checked>
-        <label for="cs" class="python">Programming</label>
-        <input type="radio" name="question2" value="Statistics" id="statistics" class="r">
-        <label for="statistics" class="r">Statistics</label>
-      </li>
-      <li>
-        <p>Do you like being useful?</p>
-        <input type="radio" name="question3" value="Yes" id="yes-useful" class="Non-assembly" checked>
-        <label for="yes-useful" class="Non-assembly">Yes</label>
-        <input type="radio" name="question3" value="No" id="not-useful" class="assembly">
-        <label for="not-useful" class="assembly">No</label>
-      </li>
-      <li>
-        <p>Which I/O device do you prefer?</p>
-        <input type="radio" name="question4" value="Keyboard" id="keyboard" class="Non-assembly" checked>
-        <label for="keyboard" class="Non-assembly">Keyboard</label>
-        <input type="radio" name="question4" value="Punch-card" id="punch-card" class="assembly">
-        <label for="punch-card" class="assembly">Punch card</label>
-      </li>
-      <li>
-        <p>Which is more important to you: machine learning or data analysis and visualization?</p>
-        <input type="radio" name="question5" value="ML" id="ml" class="python" checked>
-        <label for="ml" class="python">Machine Learning</label>
-        <input type="radio" name="question5" value="DAV" id="dav" class="r">
-        <label for="dav" class="r">Data Analysis and Visualization</label>
-      </li>
-      <li>
-        <p>Which community sounds most appealing: modestly-sized and specialized with a highly-curated, centralized, vast and deep ecosystem of open-source libraries, or the largest programming community on the planet awash with resources of varying quality?</p>
-        <input type="radio" name="question6" value="Uh" id="uh" class="assembly" checked>
-        <label for="uh" class="assembly">That's the most leading question I've ever seen</label><br>
-        <input type="radio" name="question6" value="First" id="first" class="r">
-        <label for="first" class="r">The first one</label><br>
-        <input type="radio" name="question6" value="Second" id="second" class="python">
-        <label for="second" class="python">The second</label><br>
-      </li>
-      <li>
-        <p>Hipster or Conformist?</p>
-        <input type="radio" name="question7" value="Slightly-hipster" id="slightly-hipster" class="r" checked>
-        <label for="slightly-hipster" class="r">Slightly hipster</label><br>
-        <input type="radio" name="question7" value="Conformist" id="conformist" class="python">
-        <label for="conformist" class="python">Conformist</label><br>
-        <input type="radio" name="question7" value="Mega-hipster" id="mega-hipster" class="assembly">
-        <label for="mega-hipster" class="assembly">Massively hipster</label><br>
-      </li>
-    </ol>
-    <button>Submit</button>
-  </form>
-
+  <div class="jumbotron jumbotron-fluid">
+    <h1><strong>Pick Your Programming Language</strong></h1>
+  </div>
+  <div class="container">
+    <form>
+        <div class="card">
+          <h5 class="card-title">Do you want to work in industry or academia?</h5>
+          <ul class="list-unstyled">
+            <li><input type="radio" name="question1" value="Industry" id="industry" class="python" checked>
+            <label for="industry" class="python">Industry</label></li>
+            <li><input type="radio" name="question1" value="Academia" id="academia" class="r">
+            <label for="academia" class="r">Academia</label><br></li>
+            <li><input type="radio" name="question1" value="Unemployed" id="unemployed" class="assembly">
+            <label for="unemployed" class="assembly">I really don't want a job</label></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h5 class="card-title">Are you more interested in all-purpose programming or statistics?</h5>
+          <ul class="list-unstyled">
+            <li><input type="radio" name="question2" value="CS" id="cs" class="python" checked>
+            <label for="cs" class="python">Programming</label></li>
+            <li><input type="radio" name="question2" value="Statistics" id="statistics" class="r">
+            <label for="statistics" class="r">Statistics</label></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h5 class="card-title">Do you like being useful?</h5>
+          <ul class="list-unstyled">
+            <li><input type="radio" name="question3" value="Yes" id="yes-useful" class="Non-assembly" checked>
+            <label for="yes-useful" class="Non-assembly">Yes</label></li>
+            <li><input type="radio" name="question3" value="No" id="not-useful" class="assembly">
+            <label for="not-useful" class="assembly">No</label></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h5 class="card-title">Which I/O device do you prefer?</h5>
+          <ul class="list-unstyled">
+            <li><input type="radio" name="question4" value="Keyboard" id="keyboard" class="Non-assembly" checked>
+            <label for="keyboard" class="Non-assembly">Keyboard</label></li>
+            <li><input type="radio" name="question4" value="Punch-card" id="punch-card" class="assembly">
+            <label for="punch-card" class="assembly">Punch card</label></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h5 class="card-title">Which is more important to you: machine learning or data analysis and visualization?</h5>
+          <ul class="list-unstyled">
+            <li><input type="radio" name="question5" value="ML" id="ml" class="python" checked>
+            <label for="ml" class="python">Machine Learning</label></li>
+            <li><input type="radio" name="question5" value="DAV" id="dav" class="r">
+            <label for="dav" class="r">Data Analysis and Visualization</label></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h5 class="card-title">Which community sounds most appealing: modestly-sized and specialized with a highly-curated, centralized, vast and deep ecosystem of open-source libraries, or the largest programming community on the planet awash with resources of varying quality?</h5>
+          <ul class="list-unstyled">
+            <li><input type="radio" name="question6" value="Uh" id="uh" class="assembly" checked>
+            <label for="uh" class="assembly">That's the most leading question I've ever seen</label></li>
+            <li><input type="radio" name="question6" value="First" id="first" class="r">
+            <label for="first" class="r">The first one</label></li>
+            <li><input type="radio" name="question6" value="Second" id="second" class="python">
+            <label for="second" class="python">The second</label></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h5 class="card-title">Hipster or Conformist?</h5>
+          <ul class="list-unstyled">
+            <li><input type="radio" name="question7" value="Slightly-hipster" id="slightly-hipster" class="r" checked>
+            <label for="slightly-hipster" class="r">Slightly hipster</label></li>
+            <li><input type="radio" name="question7" value="Conformist" id="conformist" class="python">
+            <label for="conformist" class="python">Conformist</label></li>
+            <li><input type="radio" name="question7" value="Mega-hipster" id="mega-hipster" class="assembly">
+            <label for="mega-hipster" class="assembly">Massively hipster</label></li>
+          </ul>
+        </div>
+      <button>Submit</button>
+    </form>
   <div id="r" class="hidden">
-    <p><strong>R</strong> is the best language for you.</p>
+    <h5><strong>R</strong> is the best language for you.</h5>
   </div>
 
   <div id="python" class="hidden">
-    <p><strong>Python</strong> should be your next language.</p>
+    <h5><strong>Python</strong> should be your next language.</h5>
   </div>
 
   <div id="assembly" class="hidden">
-    <p><strong>Assembly</strong> sounds up your alley.</p>
+    <h5><strong>Assembly</strong> sounds up your alley.</h5>
   </div>
+</div>
 
 </body>
 </html>
