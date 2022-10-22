@@ -13,7 +13,7 @@
 
 ## Description
 
-_The webpage asks the user for answers to seven questions in order to suggest which programming language they might enjoy and benefit from learning. There are three potential recommendations: Python, R, Assembly. The site bases its recommendation by assigning a class to each answer as indicating a potential affinity for one of languages. Using JS and Web API event handling tools the site takes the user's input, identifies which class was assigned to each answer the user gave, and tallies up how many times an answer was given belonging to each class. The class with the highest tally is returned as the suggested language. Ties are settled in the order of listing given above (Python, R, then Assembly)._
+_The webpage asks the user for answers to seven questions in order to suggest which programming language they might enjoy and benefit from learning. There are three potential recommendations: Python, R, Assembly. The site bases its recommendation by assigning a class to each answer as indicating a potential affinity for one of these languages. Using JS and Web API event handling tools the site takes the user's input, identifies which class was assigned to each answer the user gave, and tallies up how many times an answer was given belonging to each class. The class with the highest tally is displayed as the suggested language. Ties are settled in the order of the listing given above (Python, R, then Assembly)._
 
 ## Setup/Installation Requirements
 

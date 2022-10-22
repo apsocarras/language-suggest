@@ -34,8 +34,6 @@ function updateDisplay() {
   document.getElementById("banner-pic").setAttribute("src","img/" + langSuggestion + ".jpg");
   // Swap banner title to reflect language
   document.getElementById("banner-title").innerText = "Welcome to " + langSuggestion.toUpperCase() + "!";
-
-
 }
 
 // Event Listening

@@ -6,6 +6,22 @@ body {
   background-color: indianred;
 }
 
+.jumbotron {
+  text-align: center;
+  background-color:floralwhite;
+}
+
+#banner-pic {
+  float: center;
+  width: 200px;
+  height: auto;
+  margin: 5px;
+}
+
+#banner-title {
+  font-weight: 900;
+}
+
 .card {
   margin: 10px;
   padding: 10px;
@@ -21,29 +37,15 @@ li {
   font-size: large;
 }
 
-.jumbotron {
-  text-align: center;
-  background-color:floralwhite;
-
-}
-
-#banner-pic {
-  float: center;
-  width: 200px;
-  height: auto;
-  margin: 5px;
-}
-
-#banner-title {
-  font-weight: 900;
-}
-
 #results {
   text-align: center;
-  color:azure;
   font-weight: 1000;
+  color:antiquewhite;
+  border-radius: 10%;
   /* -webkit-text-stroke-width: .5px;
   -webkit-text-stroke-color: black; */
+  background-color:darkred;
+  padding: 10px;
 }
 
 .button-container {
