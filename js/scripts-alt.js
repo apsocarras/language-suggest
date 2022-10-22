@@ -30,6 +30,12 @@ function updateDisplay() {
   document.getElementById("assembly").setAttribute("class", "hidden");
   // Reveal new div based on business logic result: "langSuggestion"
   document.getElementById(langSuggestion).removeAttribute("class");
+  // Swap banner picture to reflect language
+  document.getElementById("banner-pic").setAttribute("src","img/" + langSuggestion + ".jpg");
+  // Swap banner title to reflect language
+  document.getElementById("banner-title").innerText = "Welcome to " + langSuggestion.toUpperCase() + "!";
+
+
 }
 
 // Event Listening

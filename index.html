@@ -8,7 +8,8 @@
 </head>
 <body>
   <div class="jumbotron jumbotron-fluid">
-    <h1><strong>Pick Your Programming Language</strong></h1>
+    <img id="banner-pic" src="img/confused-pc.jpg" alt="A confused PC.">
+    <h1 id="banner-title"><strong>Pick Your Programming Language</strong></h1>
   </div>
   <div class="container">
     <form>
@@ -81,20 +82,24 @@
             <label for="mega-hipster" class="assembly">Massively hipster</label></li>
           </ul>
         </div>
-      <button>Submit</button>
+      <div class="button-container">
+        <button class="btn btn-light">Submit</button>
+      </div>
     </form>
-  <div id="r" class="hidden">
-    <h5><strong>R</strong> is the best language for you.</h5>
-  </div>
+    <div id="results" class ="container">
+      <div id="r" class="hidden">
+        <h2><strong>R</strong> is the best language for you.</h2>
+      </div>
 
-  <div id="python" class="hidden">
-    <h5><strong>Python</strong> should be your next language.</h5>
-  </div>
+      <div id="python" class="hidden">
+        <h2><strong>Python</strong> should be your next language.</h2>
+      </div>
 
-  <div id="assembly" class="hidden">
-    <h5><strong>Assembly</strong> sounds up your alley.</h5>
+      <div id="assembly" class="hidden">
+        <h2><strong>Assembly</strong> sounds up your alley.</h2>
+      </div>
+    </div>
   </div>
-</div>
 
 </body>
 </html>

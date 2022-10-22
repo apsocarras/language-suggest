@@ -3,12 +3,14 @@
 }
 
 body {
-  background-color: tomato;
+  background-color: indianred;
 }
 
 .card {
   margin: 10px;
   padding: 10px;
+  border: solid 5px;
+  border-radius: 10px 10px 10px 10px;
 }
 
 h5.card-title {
@@ -20,7 +22,30 @@ li {
 }
 
 .jumbotron {
-  
   text-align: center;
+  background-color:floralwhite;
 
+}
+
+#banner-pic {
+  float: center;
+  width: 200px;
+  height: auto;
+  margin: 5px;
+}
+
+#banner-title {
+  font-weight: 900;
+}
+
+#results {
+  text-align: center;
+  color:azure;
+  font-weight: 1000;
+  /* -webkit-text-stroke-width: .5px;
+  -webkit-text-stroke-color: black; */
+}
+
+.button-container {
+  text-align: center;
 }
