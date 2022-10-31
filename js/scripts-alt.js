@@ -19,7 +19,7 @@ function getInputArray() {
   const answer6 = document.querySelector("input[name='question6']:checked");
   const answer7 = document.querySelector("input[name='question7']:checked");
 
-  answers = [answer1,answer2,answer3,answer4,answer5,answer6,answer7];
+  let answers = [answer1,answer2,answer3,answer4,answer5,answer6,answer7];
 
 }
 
@@ -51,7 +51,7 @@ window.addEventListener("load", function() {
 });
 
 /////////////////////////////////////////////////////////////////////////////
-
+// Place above UI
 // Business Logic 
 
 function suggestLang() {
@@ -62,7 +62,7 @@ function suggestLang() {
     assembly: 0
   }
 
-  for (i = 0; i < answers.length; i++) {
+  for (let i = 0; i < answers.length; i++) {
     for (let [key,value] of Object.entries(suggestionKey)) {
       if (answers[i].className === key) {
         suggestionKey[key] = value + 1; 
