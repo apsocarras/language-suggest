@@ -1,4 +1,30 @@
 /////////////////////////////////////////////////////////////////////////////
+// Business Logic 
+
+function suggestLang() {
+
+  let python = 0;
+  let r = 0;
+  let assembly = 0;
+
+  for (let i = 0; i < answers.length; i++) {
+    if (answers[i].className === "python") {
+      python += 1;
+    } else if (answers[i].className === "r") {
+      r += 1;
+    } else if (answers[i].className === "assembly") {
+      assembly += 1;
+    }
+  }
+
+  let langNames = ["python","r","assembly"];
+  let tally = [python,r,assembly]; 
+  const index = tally.indexOf(Math.max(...tally));
+  langSuggestion = langNames[index];
+
+}
+
+/////////////////////////////////////////////////////////////////////////////
 
 // UI Logic
 
@@ -43,29 +69,3 @@ window.addEventListener("load", function() {
   });
 });
 
-/////////////////////////////////////////////////////////////////////////////
-// Place above UI
-// Business Logic 
-
-function suggestLang() {
-
-  let python = 0;
-  let r = 0;
-  let assembly = 0;
-
-  for (let i = 0; i < answers.length; i++) {
-    if (answers[i].className === "python") {
-      python += 1;
-    } else if (answers[i].className === "r") {
-      r += 1;
-    } else if (answers[i].className === "assembly") {
-      assembly += 1;
-    }
-  }
-
-  let langNames = ["python","r","assembly"];
-  let tally = [python,r,assembly]; 
-  const index = tally.indexOf(Math.max(...tally));
-  langSuggestion = langNames[index];
-
-}
