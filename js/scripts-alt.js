@@ -6,55 +6,9 @@
 // So I saved it here to keep record of the work I've put into it.
 
 /////////////////////////////////////////////////////////////////////////////
-
-// UI Logic
-
-function getInputArray() {
-
-  const answer1 = document.querySelector("input[name='question1']:checked");
-  const answer2 = document.querySelector("input[name='question2']:checked");
-  const answer3 = document.querySelector("input[name='question3']:checked");
-  const answer4 = document.querySelector("input[name='question4']:checked");
-  const answer5 = document.querySelector("input[name='question5']:checked");
-  const answer6 = document.querySelector("input[name='question6']:checked");
-  const answer7 = document.querySelector("input[name='question7']:checked");
-
-  let answers = [answer1,answer2,answer3,answer4,answer5,answer6,answer7];
-
-}
-
-function updateDisplay() {
-  // Hide previously revealed div in the HTML
-  document.getElementById("python").setAttribute("class", "hidden");
-  document.getElementById("r").setAttribute("class", "hidden");
-  document.getElementById("assembly").setAttribute("class", "hidden");
-  // Reveal new div based on business logic result: "langSuggestion"
-  document.getElementById(langSuggestion).removeAttribute("class");
-  // Swap banner picture to reflect language
-  document.getElementById("banner-pic").setAttribute("src","img/" + langSuggestion + ".jpg");
-  // Swap banner title to reflect language
-  document.getElementById("banner-title").innerText = "Welcome to " + langSuggestion.toUpperCase() + "!";
-}
-
-// Event Listening
-window.addEventListener("load", function() {
-  let form = document.querySelector("form");
-  let langSuggestion = "";
-  let answers = [];
-
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
-    getInputArray();
-    suggestLang();
-    updateDisplay();
-  });
-});
-
-/////////////////////////////////////////////////////////////////////////////
-// Place above UI
 // Business Logic 
 
-function suggestLang() {
+function suggestLang(input_array) {
 
   let suggestionKey = {
     python: 0,
@@ -62,9 +16,9 @@ function suggestLang() {
     assembly: 0
   }
 
-  for (let i = 0; i < answers.length; i++) {
+  for (let i = 0; i < input_array.length; i++) {
     for (let [key,value] of Object.entries(suggestionKey)) {
-      if (answers[i].className === key) {
+      if (input_array[i] === key) {
         suggestionKey[key] = value + 1; 
       }
     }
@@ -72,6 +26,48 @@ function suggestLang() {
   
   const tallies = Object.values(suggestionKey);
   const index = tallies.indexOf(Math.max(...tallies));
-  langSuggestion = Object.keys(suggestionKey)[index];
+  const langSuggestion = Object.keys(suggestionKey)[index];
+  return langSuggestion
 
 }
+/////////////////////////////////////////////////////////////////////////////
+
+// UI Logic
+function getAnswerArray() {
+
+  const answer1 = document.querySelector("input[name='question1']:checked").className;
+  const answer2 = document.querySelector("input[name='question2']:checked").className;
+  const answer3 = document.querySelector("input[name='question3']:checked").className;
+  const answer4 = document.querySelector("input[name='question4']:checked").className;
+  const answer5 = document.querySelector("input[name='question5']:checked").className;
+  const answer6 = document.querySelector("input[name='question6']:checked").className;
+  const answer7 = document.querySelector("input[name='question7']:checked").className;
+
+  const answer_array = [answer1,answer2,answer3,answer4,answer5,answer6,answer7];
+
+  return answer_array
+}
+
+function updateDisplay(suggestedLang) {
+  // Hide previously revealed div in the HTML
+  document.getElementById("python").setAttribute("class", "hidden");
+  document.getElementById("r").setAttribute("class", "hidden");
+  document.getElementById("assembly").setAttribute("class", "hidden");
+  // Reveal new div based on business logic result: "langSuggestion"
+  document.getElementById(suggestedLang).removeAttribute("class");
+  // Swap banner picture to reflect language
+  document.getElementById("banner-pic").setAttribute("src","img/" + suggestedLang + ".jpg")
+  // Swap banner title to reflect language
+  document.getElementById("banner-title").innerText = "Welcome to " + suggestedLang.toUpperCase() + "!";
+}
+
+// Event Listening
+window.addEventListener("load", function() {
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    const langSuggestion = suggestLang(getAnswerArray());
+    updateDisplay(langSuggestion);
+  });
+});
